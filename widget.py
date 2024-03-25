@@ -32,6 +32,8 @@ class Widget(QWidget):
         self.ui.user_ans.textChanged.connect(self.validateUserInput)
         self.ui.user_ans.installEventFilter(self)
         self.ui.user_ans.setFocus()
+
+        self.setupAccessibility()
     def play_correct_music(self):
         # Load and play the correct answer music file
         pygame.mixer.music.load("sounds/excellent-1.ogg")
@@ -147,7 +149,6 @@ class Widget(QWidget):
 
         if userans == self.tans:
             self.ui.result.setText("Correct")
-
             thread =threading.Thread(target=self.play_correct_music)
             thread.start()
             # Wait for the music to finish before generating the next question
@@ -160,6 +161,29 @@ class Widget(QWidget):
             self.ui.user_ans.clear()
             self.speech.say(self.question)
 
+    def setupAccessibility(self):
+                   # Set accessibility properties for interactive elements
+                   self.ui.operation.setAccessibleName("Operation Selection")
+                   self.ui.operation.setAccessibleDescription("Select the arithmetic operation")
+
+                   self.ui.n1.setAccessibleName("First Number Input")
+                   self.ui.n1.setAccessibleDescription("Input field for the first number")
+
+                   self.ui.n2.setAccessibleName("Second Number Input")
+                   self.ui.n2.setAccessibleDescription("Input field for the second number")
+
+                   self.ui.user_ans.setAccessibleName("User Answer Input")
+                   self.ui.user_ans.setAccessibleDescription("Input field for the user's answer")
+                   self.ui.user_ans.setPlaceholderText("Enter your answer")
+
+                   self.ui.result.setAccessibleName("Result Display")
+                   self.ui.result.setAccessibleDescription("Display area for the result of the operation123")
+
+                   self.ui.Difficulty_levels.setAccessibleName("Difficulty Selection")
+                   self.ui.Difficulty_levels.setAccessibleDescription("Select the difficulty level")
+
+                   self.ui.Languages.setAccessibleName("Language Selection")
+                   self.ui.Languages.setAccessibleDescription("Select the language")
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
