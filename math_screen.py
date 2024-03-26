@@ -13,7 +13,7 @@ from PySide6.QtCore import QEvent, Qt
 from PySide6.QtGui import QKeyEvent
 from PySide6.QtTextToSpeech import QTextToSpeech
 from ui_form import Ui_Widget
-
+from correct_screen import correct_screen
 class math_screen(QtWidgets.QWidget):
     def __init__(self, parent=None):
         super().__init__(parent)
@@ -21,6 +21,7 @@ class math_screen(QtWidgets.QWidget):
         self.ui.setupUi(self)
         self.speech = QTextToSpeech(self)
         self.generateQuestion()  # Generate the initial question
+        self.currscreen=correct_screen()
         # Connect signals
         # Initialize pygame for music playback
         pygame.mixer.init()
@@ -148,9 +149,14 @@ class math_screen(QtWidgets.QWidget):
             self.ui.result.setText("Correct")
             thread =threading.Thread(target=self.play_correct_music)
             thread.start()
-            # Wait for the music to finish before generating the next question
-            time.sleep(4)
-            #self.speech.say("Correct")
+
+           #NEED TO CHECK THIS..CORRECT SCREEN IS BLANK
+
+          #  self.hide()
+          #  self.currscreen.show()
+            time.sleep(4)        # Wait for the music to finish before generating the next question
+          #  self.currscreen.hide()
+           # self.show()
             self.generateQuestion()
         else:
             self.ui.result.setText("Wrong")

@@ -24,14 +24,10 @@ class Ui_Form(object):
         Form.resize(800, 600)
         self.label = QLabel(Form)
         self.label.setObjectName(u"label")
-        self.label.setGeometry(QRect(300, 150, 261, 81))
+        self.label.setGeometry(QRect(180, 180, 481, 151))
         font = QFont()
-        font.setPointSize(20)
+        font.setPointSize(22)
         self.label.setFont(font)
-        self.label_2 = QLabel(Form)
-        self.label_2.setObjectName(u"label_2")
-        self.label_2.setGeometry(QRect(240, 230, 351, 291))
-        self.label_2.setPixmap(QPixmap(u"images/excellent-1.gif"))
 
         self.retranslateUi(Form)
 
@@ -40,7 +36,6 @@ class Ui_Form(object):
 
     def retranslateUi(self, Form):
         Form.setWindowTitle(QCoreApplication.translate("Form", u"Form", None))
-        self.label.setText(QCoreApplication.translate("Form", u"Awesome!", None))
-        self.label_2.setText("")
+        self.label.setText(QCoreApplication.translate("Form", u"YOUR ANSWER IS CORRECT!", None))
     # retranslateUi
 
