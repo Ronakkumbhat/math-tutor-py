@@ -58,6 +58,8 @@
         "sounds/wrong-anwser-repeted-1.ogg",
         "sounds/wrong-anwser-repeted-2.ogg",
         "sounds/wrong-anwser-repeted-3.ogg",
-        "correct.ui"
+        "correct.ui",
+        "math_screen.py",
+        "welcome_screen.ui"
     ]
 }
